@@ -1,3 +1,5 @@
+var Promise = require('bluebird');
+
 var calculateTip = function(total, tip_percent) {
 	tip_percent = tip_percent || .25;
 
@@ -13,8 +15,21 @@ var celsiusToFarenheit = function (temp) {
 	return (temp * 1.8) + 32;
 }
 
+var add = function (a, b) {
+	return new Promise(function (resolve, reject){
+		setTimeout(function (){
+			if (a<0 || b<0) {
+				return reject('Both numbers must be non-negative');
+			}
+
+			return resolve(a + b);
+		}, 2000);
+	});
+}
+
 module.exports = {
 	calculateTip: calculateTip,
 	farenheitToCelsius: farenheitToCelsius,
-	celsiusToFarenheit: celsiusToFarenheit
+	celsiusToFarenheit: celsiusToFarenheit,
+	add: add
 }

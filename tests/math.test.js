@@ -38,8 +38,16 @@ test('Should test farenheit to celsius temperature conversion', function () {
 
 test('Async test demo', function (done){
 	setTimeout(function(){
-		expect(1).toBe(2);
+		expect(1).toBe(1);
 		done();
-	}, 3000);
+	}, 10);
 });
 
+
+test('Should add two numbers', function (done){
+	math.add(2, 3)
+	.then (function (sum) {
+		expect(sum).toBe(5);
+		done();
+	});
+});
