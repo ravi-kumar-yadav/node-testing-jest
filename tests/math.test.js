@@ -36,9 +36,10 @@ test('Should test farenheit to celsius temperature conversion', function () {
 	expect(celsius).toBe(50);
 });
 
-test('Async test demo', function (){
+test('Async test demo', function (done){
 	setTimeout(function(){
 		expect(1).toBe(2);
-	}, 5000);
+		done();
+	}, 3000);
 });
 
